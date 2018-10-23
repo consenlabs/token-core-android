@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.chaitanyapramod.findbugs-android'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+findbugs {
+    toolVersion '3.0.1'
+    ignoreFailures true
+    effort 'max'
+    reportLevel 'high'
+    reportsDir = file("$project.buildDir/findbugsReports")
+}
+
+
+dependencies {
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.0'
+    compile 'org.bitcoinj:bitcoinj-core:0.14.3'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.+'
+//    compile group: 'com.google.protobuf', name: 'protobuf-lite', version: '3.0.1'
+    compile 'com.google.protobuf:protobuf-java:3.5.1'
+    testCompile group: 'org.json', name: 'json', version: '20171018'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+}
