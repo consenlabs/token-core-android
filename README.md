@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/consenlabs/token-core-android.svg)](https://jitpack.io/#consenlabs/token-core-android)
+
 
 ## Token Core
 TokenCore is a blockchain library. TokenCore provides the relatively consistent API that allows you to manage your wallets and sign transactions in BTC, ETH and EOS chains simultaneously.
@@ -19,11 +21,29 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 ```
 dependencies {
-		implementation 'com.github.consenlabs:token-core-android:v0.1'
+	implementation 'com.github.consenlabs:token-core-android:v0.1'
 }
 ```
 
 ## Try the API
+### Init the storage to store the keystore file
+```
+public class MainActivity extends AppCompatActivity implements KeystoreStorage {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        WalletManager.storage = this;
+        WalletManager.scanWallets();
+    }
+
+    public File getKeystoreDir() {
+        return this.getFilesDir();
+    }
+}
+```
+
 ### Create new Identity and derive the eth, btc wallets
 ```java
 // You should create or recover Identity first before you create other wallets
