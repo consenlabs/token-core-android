@@ -41,13 +41,13 @@ findbugs {
 
 
 dependencies {
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.0'
-    compile 'org.bitcoinj:bitcoinj-core:0.14.3'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.+'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.0'
+    implementation 'org.bitcoinj:bitcoinj-core:0.14.3'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:1.+'
 //    compile group: 'com.google.protobuf', name: 'protobuf-lite', version: '3.0.1'
-    compile 'com.google.protobuf:protobuf-java:3.5.1'
-    testCompile group: 'org.json', name: 'json', version: '20171018'
+    implementation 'com.google.protobuf:protobuf-java:3.5.1'
+    testImplementation group: 'org.json', name: 'json', version: '20171018'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
