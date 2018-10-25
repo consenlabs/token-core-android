@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.chaitanyapramod.findbugs-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.consenlabs'
@@ -29,14 +28,6 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
-}
-
-findbugs {
-    toolVersion '3.0.1'
-    ignoreFailures true
-    effort 'max'
-    reportLevel 'high'
-    reportsDir = file("$project.buildDir/findbugsReports")
 }
 
 
