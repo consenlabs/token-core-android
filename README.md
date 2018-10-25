@@ -37,6 +37,16 @@ android {
 }
 ```
 
+Step 4. (Optional) When you wants to debug your app in Android Oreo you shoud add the blow code to your build.gradle. Pls ref to https://issuetracker.google.com/issues/65941637 for more info.
+```
+android {
+    ……
+    packagingOptions {
+        exclude 'lib/x86_64/darwin/libscrypt.dylib'
+    }
+   ……
+}
+```
 ## Try the API
 ### Init the storage to store the keystore file
 ```
