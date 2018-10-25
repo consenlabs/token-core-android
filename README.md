@@ -25,6 +25,18 @@ dependencies {
 }
 ```
 
+Step 3. Add the JAVA8 support to your build.gradle
+```
+android {
+    ……
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+   ……
+}
+```
+
 ## Try the API
 ### Init the storage to store the keystore file
 ```
