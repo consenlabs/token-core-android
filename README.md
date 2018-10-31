@@ -94,7 +94,7 @@ System.out.println(String.format("Keystore: %s", json));
 
 ### SignTransaction
 ```java
-EthereumTransaction tran = WalletManager.ethSign(BigInteger nonce, BigInteger gasPrice, BigInteger gasLimit, String to, BigInteger value, String data)
+EthereumTransaction tran = new EthereumTransaction(BigInteger nonce, BigInteger gasPrice, BigInteger gasLimit, String to, BigInteger value, String data)
 TxSignResult result = tran.signTransaction(chainId, SampleKey.PASSWORD, ethereumWallet);
 String signedTx = result.getSignedTx(); // This is the signature result which you need to broadcast.
 String txHash = result.getTxHash(); // This is txHash which you can use for locating your transaction record
